@@ -1,0 +1,60 @@
+﻿<Window x:Class="PausedVideoTrimmer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NSwitch GetUse"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+		d:DesignHeight="433"
+		d:DesignWidth="640"
+		WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="232"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,12,4,12" Text="Source Images:" />
+        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SourceImagesPath}" Margin="0,11"/>
+        <Button Grid.Row="1" Grid.Column="2" Click="SelectSourceImagesPath" Margin="5,2,10,2" Height="35">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="img/browse.png" Width="24"></Image>
+                <TextBlock Text="Selecteer" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
+            </StackPanel>
+        </Button>
+
+        <!--<TextBlock Grid.Row="2" Grid.Column="0" Text="Factuur template:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,12,3,12" />
+		<TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding InvoiceTemplatePath}" Grid.ColumnSpan="3" Margin="0,9"/>
+		<Button Grid.Row="2" Grid.Column="4" Click="SelectInvoiceTemplatePath" Margin="5 0 10 0" Height="35">
+			<StackPanel Orientation="Horizontal">
+				<Image Source="img/browse.png" Width="24"></Image>
+				<TextBlock Text="Selecteer" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
+			</StackPanel>
+		</Button>-->
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Output Video:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,12,5,12" />
+        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding OutputVideoPath}" Margin="0,11" />
+        <Button Grid.Row="2" Grid.Column="2" Click="SelectOutputVideoFile" Margin="5,2,10,2" Height="35">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="img/browse.png" Width="24"></Image>
+                <TextBlock Text="Selecteer" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="3" Grid.Column="2" Click="BtnAnalyse" Margin="5,2,10,2" Height="35" IsEnabled="{Binding InputCorrect}" IsDefault="True">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" ><Run Text="Analy"/><Run Text="se"/></TextBlock>
+            </StackPanel>
+        </Button>
+        <ProgressBar Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Center" Height="34" Margin="10,3" Value="{Binding Progress}" />
+        <TextBlock Text="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="5" Background="LightGray" Margin="80,12,318,12" />
+    </Grid>
+</Window>
